@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            border: solid 1px black;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        form div {
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Add sản phẩm</h1>
+    <form action="/update/<%= product.id %>" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="title">Name</label>
+            <input type="text" name="name" value="<%= product.name %>">
+        </div>
+        <div>
+            <label for="price">Price</label>
+            <input type="text" name="price" value="<%= product.price %>">
+        </div>
+        <div>
+            <label for="image">Image</label>
+            <input type="file" name="image">
+            <% if (product.image) { %>
+                <img src="./public/uploads/<%= product.image %>" alt="">
+                <% } %>
+        </div>
+        <input type="submit" value="update">
+    </form>
+</body>
+
+</html>

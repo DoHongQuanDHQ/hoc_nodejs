@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .btn {
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 150px;
+            height: 40px;
+            border: solid 1px black;
+            background-color: white;
+        }
+
+        .btn a {
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: crimson;
+            color: white;
+        }
+
+        table {
+            border: solid 1px black;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Đây là trang danh mục</h1>
+    <div>
+        <button class="btn"><a href="/create">Add Pro</a></button>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <% for (let i=0; i < products.length; i++) { %>
+            <tr>
+                <td>
+                    <%= products[i].id %>
+                </td>
+                <td>
+                    <%= products[i].name %>
+                </td>
+                <td>
+                    <img src="/uploads/<%= products[i].image %>" width="100" height="100">
+                </td>
+                <td>
+                    <%= products[i].price %>
+                </td>
+                <td>
+                    <button><a href="/edit/<%= products[i].id %>"> Edit</a></button>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>
